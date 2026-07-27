@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elena Reuter — Malerei</title>
+  <meta name="description" content="Portfolio der Malerin Elena Reuter. Ölmalerei und Mischtechnik.">
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       Tipp: Ändere hier die Menüpunkte oder den Namen oben links.
+       ============================================ -->
+  <nav class="nav">
+    <a href="#top" class="nav__mark">Elena Reuter</a>
+    <ul class="nav__links">
+      <li><a href="#ueber-mich">Über mich</a></li>
+      <li><a href="#werke">Werke</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================
+       HERO
+       Tipp: hero.jpg im Ordner "assets" austauschen, um dein eigenes Bild zu zeigen.
+       Name und Satz darunter hier direkt im Text ändern.
+       ============================================ -->
+  <header class="hero" id="top">
+    <img src="assets/hero.jpg" alt="Atelieransicht mit Gemälden von Elena Reuter" class="hero__image">
+    <div class="hero__scrim"></div>
+    <div class="hero__content">
+      <span class="hero__eyebrow">Malerin · Öl auf Leinwand</span>
+      <h1 class="hero__name">Elena<br>Reuter</h1>
+      <p class="hero__tagline">Bilder über Licht, Erinnerung und die Landschaften, die dazwischen liegen.</p>
+      <svg class="brushstroke" viewBox="0 0 180 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M2 14 C 40 4, 60 20, 90 10 C 120 2, 140 18, 178 8" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="scroll-cue">Scrollen</span>
+  </header>
+
+  <!-- ============================================
+       ÜBER MICH
+       Tipp: Die beiden Absätze und die Fakten-Liste unten sind reiner Text —
+       einfach direkt hier überschreiben.
+       ============================================ -->
+  <section class="about reveal" id="ueber-mich">
+    <div class="container about__grid">
+      <div>
+        <span class="section-label">Über mich</span>
+        <h2 class="section-title">Zwischen Farbe und Erinnerung</h2>
+      </div>
+      <div class="about__body">
+        <p>
+          Ich male seit über zehn Jahren, vorwiegend in Öl, manchmal in Mischtechnik
+          mit Pigment und Kreide. Meine Arbeiten entstehen langsam, in mehreren
+          Schichten — jedes Bild trägt die Spuren der vorherigen Version in sich.
+        </p>
+        <p>
+          Im Zentrum steht die Frage, wie Licht einen Ort verändert und wie sich
+          das im Gedächtnis wieder verwandelt. Ausgestellt unter anderem in
+          Mainz, Frankfurt und Straßburg.
+        </p>
+        <div class="about__facts">
+          <dl>
+            <dt>Technik</dt>
+            <dd>Öl auf Leinwand, Mischtechnik</dd>
+            <dt>Atelier</dt>
+            <dd>Mainz, Deutschland</dd>
+            <dt>Ausstellungen</dt>
+            <dd>2021–2026, Rhein-Main-Gebiet</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       WERKE / GALERIE
+       Tipp: project1.jpg / project2.jpg austauschen. Titel und Jahr
+       stehen direkt darunter im Text.
+       Weitere Werke hinzufügen: einen ganzen <div class="project">...</div>
+       Block kopieren und einfügen, dann Bild/Text anpassen.
+       ============================================ -->
+  <section class="gallery reveal" id="werke">
+    <div class="container">
+      <div class="gallery__header">
+        <span class="section-label">Ausgewählte Werke</span>
+        <h2 class="section-title">Werke</h2>
+      </div>
+      <div class="gallery__grid">
+        <div class="project">
+          <img src="assets/project1.jpg" alt="Gemälde: Ockerfelder, Öl auf Leinwand">
+          <div class="project__caption">
+            <div class="project__title">Ockerfelder</div>
+            <div class="project__meta">Öl auf Leinwand · 2025</div>
+          </div>
+        </div>
+        <div class="project">
+          <img src="assets/project2.jpg" alt="Gemälde: Nachtwasser, Öl auf Leinwand">
+          <div class="project__caption">
+            <div class="project__title">Nachtwasser</div>
+            <div class="project__meta">Öl auf Leinwand · 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       KONTAKT
+       Tipp: E-Mail-Adresse und Instagram-Link hier eintragen.
+       ============================================ -->
+  <section class="contact reveal" id="kontakt">
+    <div class="container contact__inner">
+      <h2 class="contact__title">Lust auf ein Gespräch über ein Werk?</h2>
+      <div class="contact__links">
+        <a href="mailto:hallo@elena-reuter.de" class="contact__link">
+          <img src="icons/icon-mail.svg" alt="" width="18" height="18">
+          hallo@elena-reuter.de
+        </a>
+        <a href="https://instagram.com/" class="contact__link" target="_blank" rel="noopener">
+          <img src="icons/icon-instagram.svg" alt="" width="18" height="18">
+          @elena.reuter.art
+        </a>
+      </div>
+      <div class="footer-bar container" style="padding:0; border:none;">
+        <span>© 2026 Elena Reuter</span>
+        <span>Mainz, Deutschland</span>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
