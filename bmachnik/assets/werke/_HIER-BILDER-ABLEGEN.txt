@@ -1,0 +1,2 @@
+Hier kommen die Bilddateien der Arbeiten hinein (JPG, laengste Seite ca. 1600 px).
+Die Dateinamen muessen zu den Eintraegen in daten.js passen.

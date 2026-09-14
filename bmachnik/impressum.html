@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum — Bernd Machnik</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION (siehe Hinweis in index.html) -->
+  <nav class="nav nav--solid">
+    <a href="index.html" class="nav__mark">b.<span> machnik</span></a>
+
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+      <span class="visually-hidden">Menü öffnen</span>
+    </button>
+
+    <ul class="nav__links" id="nav-links">
+      <li><a href="arbeiten.html">Arbeiten</a></li>
+      <li><a href="ausstellungen.html">Ausstellungen</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+
+  <header class="page-head">
+    <div class="container">
+      <h1 class="page-head__title">Impressum</h1>
+      <div class="page-head__rule"></div>
+    </div>
+  </header>
+
+
+  <!-- ============================================
+       WICHTIG: Für eine deutsche Website gesetzlich
+       vorgeschrieben (§ 5 DDG). Bitte die eckigen
+       Klammern durch die echten Angaben ersetzen und
+       im Zweifel rechtlich prüfen lassen.
+       ============================================ -->
+  <section class="register">
+    <div class="container">
+
+      <div class="wirken__body">
+        <h2 class="register__heading">Angaben gemäß § 5 DDG</h2>
+        <p>
+          Bernd Machnik<br>
+          [Straße und Hausnummer]<br>
+          [PLZ Ort]<br>
+          Deutschland
+        </p>
+
+        <h2 class="register__heading" style="margin-top:3rem;">Kontakt</h2>
+        <p>
+          E-Mail: kontakt@berndmachnik.de<br>
+          Telefon: [Telefonnummer]
+        </p>
+
+        <h2 class="register__heading" style="margin-top:3rem;">Inhaltlich verantwortlich</h2>
+        <p>Bernd Machnik, Anschrift wie oben</p>
+
+        <h2 class="register__heading" style="margin-top:3rem;">Urheberrecht</h2>
+        <p>
+          Sämtliche auf dieser Website gezeigten Werke, Abbildungen und Texte sind
+          urheberrechtlich geschützt. Eine Verwendung, Vervielfältigung oder
+          Weitergabe — auch auszugsweise — ist ohne schriftliche Zustimmung des
+          Künstlers nicht gestattet.
+        </p>
+
+        <h2 class="register__heading" style="margin-top:3rem;">Haftung für Links</h2>
+        <p>
+          Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte
+          kein Einfluss besteht. Für die Inhalte der verlinkten Seiten ist stets der
+          jeweilige Anbieter oder Betreiber verantwortlich.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- KONTAKT / FUSSZEILE -->
+  <footer class="contact" id="kontakt">
+    <div class="container contact__inner">
+      <h2 class="contact__title">Interesse an einer Arbeit oder einem Gespräch?</h2>
+
+      <div class="contact__links">
+        <a href="mailto:kontakt@berndmachnik.de" class="contact__link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2.5" y="5" width="19" height="14"/><path d="m3 6 9 7 9-7"/>
+          </svg>
+          kontakt@berndmachnik.de
+        </a>
+      </div>
+
+      <div class="footer-bar">
+        <span>© <span data-jahr>2026</span> Bernd Machnik · Berlin</span>
+        <nav aria-label="Weitere Seiten">
+          <a href="wirken.html">Wirken</a>
+          <a href="arbeiten.html">Arbeiten</a>
+          <a href="ausstellungen.html">Ausstellungen</a>
+          <a href="impressum.html" aria-current="page">Impressum</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="daten.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
