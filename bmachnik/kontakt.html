@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt – Bernd Machnik</title>
+  <meta name="description" content="Kontakt zu Bernd Machnik: Anfragen zu Arbeiten und Ausstellungen.">
+  <meta name="theme-color" content="#fafcfc">
+  <link rel="canonical" href="https://berndmachnik.de/kontakt.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="b.machnik">
+  <meta property="og:title" content="Kontakt – Bernd Machnik">
+  <meta property="og:description" content="Kontakt zu Bernd Machnik: Anfragen zu Arbeiten und Ausstellungen.">
+  <meta property="og:url" content="https://berndmachnik.de/kontakt.html">
+  <meta property="og:image" content="https://berndmachnik.de/bilder/seite/og.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/work-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="daten.js" defer></script>
+  <script src="site.js" defer></script>
+</head>
+<body data-seite="kontakt">
+  <a class="sprunglink" href="#inhalt">Zum Inhalt</a>
+
+  <header class="kopf" data-kopf>
+    <div class="innen kopf__innen">
+      <a class="wortmarke" href="index.html"><img src="bilder/seite/logo.webp" alt="b.machnik – zur Startseite" width="400" height="59"></a>
+      <nav class="navigation" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="arbeiten.html">Arbeiten</a></li>
+          <li><a href="ausstellungen.html">Ausstellungen</a></li>
+          <li><a href="wirken.html">Wirken</a></li>
+          <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="menue-knopf knopf-text" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="menue" data-menue-oeffnen>Menü</button>
+    </div>
+  </header>
+
+  <dialog class="menue" id="menue" aria-label="Menü">
+    <div class="innen menue__kopf">
+      <a class="wortmarke" href="index.html"><img src="bilder/seite/logo.webp" alt="b.machnik – zur Startseite" width="400" height="59"></a>
+      <button class="knopf-text" type="button" data-menue-schliessen>Schließen</button>
+    </div>
+    <nav class="innen" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="arbeiten.html">Arbeiten</a></li>
+        <li><a href="ausstellungen.html">Ausstellungen</a></li>
+        <li><a href="wirken.html">Wirken</a></li>
+        <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+      </ul>
+    </nav>
+  </dialog>
+
+  <main id="inhalt" class="seite innen">
+    <header class="seitenkopf">
+      <h1>Kontakt</h1>
+      <p>Für Fragen zu einer Arbeit, zu einer Ausstellung oder zum Werk. Nachrichten
+        gehen direkt an den Künstler.</p>
+    </header>
+
+    <div class="kontakt__spalten">
+      <div class="kontakt__formular">
+        <!-- Netlify nimmt dieses Formular entgegen und stellt es per E-Mail zu.
+             Dafür sorgt allein das Attribut data-netlify="true".
+             Nach dem Absenden landet der Besucher auf danke.html. -->
+        <form class="formular" name="kontakt" method="POST" action="/danke.html"
+              data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="kontakt">
+
+          <p class="honigtopf" aria-hidden="true">
+            <label>Dieses Feld bitte frei lassen <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <p class="feld">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </p>
+
+          <p class="feld">
+            <label for="f-mail">E-Mail</label>
+            <input id="f-mail" name="email" type="email" autocomplete="email" required>
+          </p>
+
+          <p class="feld">
+            <label for="f-betreff">Betreff</label>
+            <input id="f-betreff" name="betreff" type="text">
+          </p>
+
+          <p class="feld">
+            <label for="f-nachricht">Nachricht</label>
+            <textarea id="f-nachricht" name="nachricht" rows="8" required></textarea>
+          </p>
+
+          <p class="zustimmung">
+            <input id="f-datenschutz" name="datenschutz" type="checkbox" required>
+            <label for="f-datenschutz">Ich bin damit einverstanden, dass meine Angaben zur
+              Beantwortung meiner Anfrage gespeichert und verarbeitet werden. Hinweise dazu
+              in der <a href="impressum.html#datenschutz">Datenschutzerklärung</a>.</label>
+          </p>
+
+          <button class="knopf" type="submit">Nachricht senden</button>
+        </form>
+      </div>
+
+      <aside class="kontakt__neben">
+        <dl data-kontakt>
+          <noscript>
+            <div><dt>E-Mail</dt><dd>Die Adresse steht im <a href="impressum.html">Impressum</a>.</dd></div>
+          </noscript>
+        </dl>
+        <p>Alle Arbeiten sind Unikate und werden nicht nachproduziert. Anfragen zu
+          einzelnen Bildern beantwortet der Künstler persönlich.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="fuss dunkel">
+    <div class="innen fuss__innen">
+      <p>© Bernd Machnik</p>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="impressum.html#datenschutz">Datenschutz</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

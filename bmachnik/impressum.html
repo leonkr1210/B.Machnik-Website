@@ -1,114 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impressum — Bernd Machnik</title>
-  <meta name="robots" content="noindex">
-  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Impressum und Datenschutz – Bernd Machnik</title>
+  <meta name="description" content="Impressum und Datenschutzhinweise der Website von Bernd Machnik. Keine Cookies, kein Tracking.">
+  <meta name="theme-color" content="#fafcfc">
+  <link rel="canonical" href="https://berndmachnik.de/impressum.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="b.machnik">
+  <meta property="og:title" content="Impressum – Bernd Machnik">
+  <meta property="og:description" content="Impressum und Datenschutz.">
+  <meta property="og:url" content="https://berndmachnik.de/impressum.html">
+  <meta property="og:image" content="https://berndmachnik.de/bilder/seite/og.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/work-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="daten.js" defer></script>
+  <script src="site.js" defer></script>
 </head>
-<body>
+<body data-seite="impressum">
+  <a class="sprunglink" href="#inhalt">Zum Inhalt</a>
 
-  <!-- NAVIGATION (siehe Hinweis in index.html) -->
-  <nav class="nav nav--solid">
-    <a href="index.html" class="nav__mark">b.<span> machnik</span></a>
-
-    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-      <span class="visually-hidden">Menü öffnen</span>
-    </button>
-
-    <ul class="nav__links" id="nav-links">
-      <li><a href="arbeiten.html">Arbeiten</a></li>
-      <li><a href="ausstellungen.html">Ausstellungen</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
-  </nav>
-
-
-  <header class="page-head">
-    <div class="container">
-      <h1 class="page-head__title">Impressum</h1>
-      <div class="page-head__rule"></div>
+  <header class="kopf" data-kopf>
+    <div class="innen kopf__innen">
+      <a class="wortmarke" href="index.html"><img src="bilder/seite/logo.webp" alt="b.machnik – zur Startseite" width="400" height="59"></a>
+      <nav class="navigation" aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="arbeiten.html">Arbeiten</a></li>
+          <li><a href="ausstellungen.html">Ausstellungen</a></li>
+          <li><a href="wirken.html">Wirken</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <button class="menue-knopf knopf-text" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="menue" data-menue-oeffnen>Menü</button>
     </div>
   </header>
 
+  <dialog class="menue" id="menue" aria-label="Menü">
+    <div class="innen menue__kopf">
+      <a class="wortmarke" href="index.html"><img src="bilder/seite/logo.webp" alt="b.machnik – zur Startseite" width="400" height="59"></a>
+      <button class="knopf-text" type="button" data-menue-schliessen>Schließen</button>
+    </div>
+    <nav class="innen" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="arbeiten.html">Arbeiten</a></li>
+        <li><a href="ausstellungen.html">Ausstellungen</a></li>
+        <li><a href="wirken.html">Wirken</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </dialog>
 
-  <!-- ============================================
-       WICHTIG: Für eine deutsche Website gesetzlich
-       vorgeschrieben (§ 5 DDG). Bitte die eckigen
-       Klammern durch die echten Angaben ersetzen und
-       im Zweifel rechtlich prüfen lassen.
-       ============================================ -->
-  <section class="register">
-    <div class="container">
+  <main id="inhalt" class="seite innen">
+    <header class="seitenkopf">
+      <h1>Impressum</h1>
+    </header>
 
-      <div class="wirken__body">
-        <h2 class="register__heading">Angaben gemäß § 5 DDG</h2>
+    <!-- Alle Felder in eckigen Klammern [ … ] ausfüllen. -->
+    <div class="rechtstext">
+      <section>
+        <h2>Angaben gemäß § 5 DDG</h2>
         <p>
-          Bernd Machnik<br>
-          [Straße und Hausnummer]<br>
-          [PLZ Ort]<br>
+          [VORNAME NACHNAME]<br>
+          [STRASSE HAUSNUMMER]<br>
+          [PLZ ORT]<br>
           Deutschland
         </p>
+      </section>
 
-        <h2 class="register__heading" style="margin-top:3rem;">Kontakt</h2>
+      <section>
+        <h2>Kontakt</h2>
         <p>
-          E-Mail: kontakt@berndmachnik.de<br>
-          Telefon: [Telefonnummer]
+          E-Mail: <a href="mailto:distribution@berndmachnik.de">distribution@berndmachnik.de</a>
         </p>
+      </section>
 
-        <h2 class="register__heading" style="margin-top:3rem;">Inhaltlich verantwortlich</h2>
-        <p>Bernd Machnik, Anschrift wie oben</p>
+      <section>
+        <h2>Haftungsausschluss</h2>
+        <h3>Inhalte</h3>
+        <p>Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für ihre Richtigkeit, Vollständigkeit und Aktualität wird jedoch keine Gewähr übernommen. Für eigene Inhalte ist der Betreiber nach den allgemeinen Gesetzen verantwortlich.</p>
+        <h3>Links</h3>
+        <p>Sofern diese Website auf externe Seiten verweist, hat der Betreiber auf deren Inhalte keinen Einfluss; verantwortlich ist der jeweilige Anbieter. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Werden solche bekannt, wird der Link umgehend entfernt.</p>
+      </section>
 
-        <h2 class="register__heading" style="margin-top:3rem;">Urheberrecht</h2>
-        <p>
-          Sämtliche auf dieser Website gezeigten Werke, Abbildungen und Texte sind
-          urheberrechtlich geschützt. Eine Verwendung, Vervielfältigung oder
-          Weitergabe — auch auszugsweise — ist ohne schriftliche Zustimmung des
-          Künstlers nicht gestattet.
-        </p>
+      <section>
+        <h2>Urheberrecht</h2>
+        <p>Alle auf dieser Website gezeigten Werke sind urheberrechtlich geschützt. Urheber ist Bernd Machnik. Vervielfältigung, Bearbeitung, Verbreitung und jede Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung.</p>
+        <p>Fotografien der Werke: [NAME, falls nicht vom Künstler selbst]</p>
+      </section>
 
-        <h2 class="register__heading" style="margin-top:3rem;">Haftung für Links</h2>
-        <p>
-          Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte
-          kein Einfluss besteht. Für die Inhalte der verlinkten Seiten ist stets der
-          jeweilige Anbieter oder Betreiber verantwortlich.
-        </p>
-      </div>
+      <section id="datenschutz">
+        <h2>Datenschutz</h2>
+        <h3>Verantwortlicher</h3>
+        <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist [VORNAME NACHNAME], Anschrift und Kontakt wie oben.</p>
 
+        <h3>Keine Cookies, kein Tracking</h3>
+        <p>Diese Website setzt keine Cookies, verwendet keine Analyse- oder Tracking-Werkzeuge und bindet keine Inhalte von Drittanbietern ein. Schriften und Skripte werden ausschließlich vom eigenen Server geladen.</p>
+
+        <h3>Server-Logdateien</h3>
+        <p>Diese Website wird betrieben von Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA. Beim Aufruf verarbeitet der Anbieter technisch notwendige Daten: IP-Adresse, Datum und Uhrzeit, aufgerufene Seite und Browsertyp. Das dient allein der Auslieferung und Sicherheit der Website (Art. 6 Abs. 1 lit. f DSGVO). Mit dem Anbieter besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO; die Übermittlung in die USA stützt sich auf die Standardvertragsklauseln der EU-Kommission. [bitte prüfen: Auftragsverarbeitungsvertrag im Netlify-Konto abschließen und Löschfrist der Logdateien ergänzen]</p>
+
+        <h3>Kontaktformular</h3>
+        <p>Über das Formular auf der Seite <a href="kontakt.html">Kontakt</a> übermittelte Angaben — Name, E-Mail-Adresse, Betreff und Nachricht — werden von Netlify, Inc. entgegengenommen, im Netlify-Konto gespeichert und per E-Mail weitergeleitet. Sie dienen allein der Bearbeitung der Anfrage und werden nicht an Dritte weitergegeben (Art. 6 Abs. 1 lit. b und f DSGVO). Die Nachrichten werden gelöscht, sobald die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungsfristen entgegenstehen.</p>
+
+        <h3>Kontakt per E-Mail</h3>
+        <p>Wer unmittelbar per E-Mail Kontakt aufnimmt, dessen Angaben werden ebenfalls nur zur Bearbeitung der Anfrage verwendet und nicht weitergegeben.</p>
+
+        <h3>Ihre Rechte</h3>
+        <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten, auf Datenübertragbarkeit sowie auf Widerspruch (Art. 15 bis 21 DSGVO). Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren, [bitte prüfen: zuständig ist die Aufsichtsbehörde am Wohnsitz des Verantwortlichen — Berlin oder Brandenburg].</p>
+
+        <p>[bitte rechtlich prüfen lassen]</p>
+      </section>
     </div>
-  </section>
+  </main>
 
-
-  <!-- KONTAKT / FUSSZEILE -->
-  <footer class="contact" id="kontakt">
-    <div class="container contact__inner">
-      <h2 class="contact__title">Interesse an einer Arbeit oder einem Gespräch?</h2>
-
-      <div class="contact__links">
-        <a href="mailto:kontakt@berndmachnik.de" class="contact__link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <rect x="2.5" y="5" width="19" height="14"/><path d="m3 6 9 7 9-7"/>
-          </svg>
-          kontakt@berndmachnik.de
-        </a>
-      </div>
-
-      <div class="footer-bar">
-        <span>© <span data-jahr>2026</span> Bernd Machnik · Berlin</span>
-        <nav aria-label="Weitere Seiten">
-          <a href="wirken.html">Wirken</a>
-          <a href="arbeiten.html">Arbeiten</a>
-          <a href="ausstellungen.html">Ausstellungen</a>
-          <a href="impressum.html" aria-current="page">Impressum</a>
-        </nav>
-      </div>
+  <footer class="fuss dunkel">
+    <div class="innen fuss__innen">
+      <p>© Bernd Machnik</p>
+      <ul>
+        <li><a href="impressum.html" aria-current="page">Impressum</a></li>
+        <li><a href="impressum.html#datenschutz">Datenschutz</a></li>
+      </ul>
     </div>
   </footer>
-
-  <script src="daten.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
