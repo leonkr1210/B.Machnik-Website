@@ -170,8 +170,8 @@
     element.style.setProperty("--r", (r || STANDARD_VERHAELTNIS).toFixed(4));
   }
 
-  /** Listeneintrag für das Werkraster; knapp = nur die Herstellungsart (Startseite) */
-  function erzeugeWerk(werk, href, knapp) {
+  /** Listeneintrag für das Werkraster */
+  function erzeugeWerk(werk, href) {
     const eintrag = el("li");
     setzeVerhaeltnis(eintrag, seitenverhaeltnis(werk.masse));
     const quelle = bildpfad(PFAD_WERKE, werk.datei);
@@ -182,7 +182,7 @@
         link,
         el("figcaption", { class: "werk__angabe" }, [
           werk.titel && el("span", { class: "werk__titel", text: werk.titel }),
-          el("span", { text: knapp ? werk.technik : kurzangabe(werk) }),
+          el("span", { text: kurzangabe(werk) }),
           statusKnoten(werk),
         ]),
       ])
@@ -388,7 +388,7 @@
       daten.werke
         .filter((w) => w.start)
         .slice(0, 6)
-        .forEach((w) => raster.append(erzeugeWerk(w, "arbeiten.html#werk-" + w.id, true)));
+        .forEach((w) => raster.append(erzeugeWerk(w, "arbeiten.html#werk-" + w.id)));
     }
 
     // Ausstellungen

@@ -157,8 +157,7 @@ const AUSSTELLUNGEN = [
   { id: "berlin-1993", status: "vergangen",
     ort: "Galerie Berlin-Marzahn", stadt: "Berlin",
     zeitraum: "1993", beginn: "1993",
-    titel: "", text: "Gemeinsam mit einer Bildhauerin.", bild: "", gross: false },
-    // [bitte prüfen: Name der Bildhauerin ergänzen?]
+    titel: "", text: "Gruppenausstellung, gemeinsam mit einer Bildhauerin.", bild: "", gross: false },
 ];
 
 
@@ -175,10 +174,10 @@ const VITA = [
     // [bitte prüfen: 1987–1989 hieß der Sender offiziell „Fernsehen der DDR“]
   { zeit: "1987 / 1988", text: "Ausstellungen: Wohngebietsgalerie Berlin-Mitte; Galerie des Stadtbezirks Berlin-Mitte" },
   { zeit: "1989–1990",   text: "Architekt in Xanten" },
-  { zeit: "seit 1990",   text: "zurück in Berlin, Malerei neben der Bauleitung" },
-  { zeit: "1993",        text: "Ausstellung, Galerie Berlin-Marzahn" },
-  { zeit: "seit 2010",   text: "Atelier in Wildau" }, // [bitte prüfen: seit wann genau?]
+  { zeit: "ab 1990",     text: "zurück in Berlin, Bauleiter neben der Malerei" },
+  { zeit: "1993",        text: "Gruppenausstellung, Galerie Berlin-Marzahn" },
   { zeit: "seit 2017",   text: "Öl auf Hartfaser und Karton: Fläche und Raum" },
+  { zeit: "seit 2025",   text: "Atelier in Wildau" },
 ];
 
 
