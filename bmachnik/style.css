@@ -426,26 +426,6 @@ button {
   opacity: 1;
 }
 
-/* Schleier, damit die Schrift auf jedem Bild lesbar bleibt.
-   Zwei Verläufe: von unten und von links, dort steht die Schrift. */
-.hero__schleier {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      to top,
-      color-mix(in srgb, var(--dunkel) 93%, transparent) 0%,
-      color-mix(in srgb, var(--dunkel) 62%, transparent) 38%,
-      color-mix(in srgb, var(--dunkel) 25%, transparent) 100%
-    ),
-    linear-gradient(
-      to right,
-      color-mix(in srgb, var(--dunkel) 62%, transparent) 0%,
-      color-mix(in srgb, var(--dunkel) 10%, transparent) 55%,
-      transparent 100%
-    );
-}
-
 .hero__text {
   position: relative;
   width: 100%;
@@ -456,12 +436,6 @@ button {
   font-weight: 400;
   letter-spacing: -0.01em;
   margin-bottom: 0.8rem;
-}
-
-.hero__zeile {
-  max-width: 38ch;
-  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
-  color: var(--text-leise);
 }
 
 /* Der Strich, der früher unter „Scrollen“ stand — bleibt als Gestaltungselement */
@@ -523,7 +497,7 @@ button {
 }
 
 .teaser__satz {
-  max-width: 36ch;
+  max-width: 40ch;
   margin-bottom: 1.75rem;
   font-family: var(--schrift-titel);
   font-size: var(--groesse-abschnitt);
