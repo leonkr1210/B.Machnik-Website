@@ -438,15 +438,6 @@ button {
   margin-bottom: 0.8rem;
 }
 
-/* Der Strich, der früher unter „Scrollen“ stand — bleibt als Gestaltungselement */
-.hero__strich {
-  display: block;
-  width: 1px;
-  height: clamp(2.5rem, 6vw, 4.5rem);
-  background: var(--ton);
-  opacity: 0.75;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .hero__buehne img {
     transition: none;
