@@ -12,8 +12,8 @@
 
 Nur Kleinbuchstaben, Ziffern und Bindestriche, keine Umlaute, keine Leerzeichen.
 
-- **Werke:** `<serie>-<jahr>-<nr>.jpg`, zum Beispiel `tischflaechen-2020-01.jpg` oder `landschaften-2025-02.jpg`.
-  Die Serie wird so geschrieben wie die `id` in `daten.js` (`stillleben`, `tischflaechen`, `landschaften`, `grafik-kugelschreiber`, `grafik-diverse`).
+- **Werke:** `<kürzel>-<jahr>-<nr>.jpg`, zum Beispiel `leinwand-2026-01.jpg`, `hartfaser-2026-01.jpg` oder `grafik-2026-01.jpg`.
+  Das Kürzel ist frei, solange es nur Kleinbuchstaben und Bindestriche enthält. Die bestehenden Dateien (z. B. `stillleben-1985-01.jpg`, `tischflaechen-2020-01.jpg`) behalten ihre Namen, damit nichts durcheinandergerät; die Gruppe, in der ein Werk erscheint, steht allein in `daten.js` (Feld `serie`).
 - **Ausstellungen:** `<stadt>-<ort>.jpg`, zum Beispiel `berlin-bethanien.jpg` oder `leipzig-spinnerei.jpg`.
 
 Der Dateiname muss genau so in `daten.js` stehen (Feld `datei` bzw. `bild`).

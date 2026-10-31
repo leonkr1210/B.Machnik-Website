@@ -14,93 +14,107 @@
 
 
 /* --------------------------------------------------------------------------
-   SERIEN
-   Reihenfolge hier = Reihenfolge auf der Seite „Arbeiten“ und im Filter.
+   GRUPPEN (im Code „SERIEN“ genannt)
+   Die Seite „Arbeiten“ ordnet die Werke nach Technik und Bildträger — nicht
+   nach Titeln oder Themen. Reihenfolge hier = Reihenfolge auf der Seite und
+   im Filter.
    id        kurzer Name ohne Umlaute und Leerzeichen (wird in WERKE verwendet)
    titel     wie er auf der Seite erscheint
-   zeitraum  z. B. "2017–2020" (mit Halbgeviertstrich –); leer lassen, wenn offen
+   zeitraum  optional, z. B. "2017–2020"; leer lassen = nichts anzeigen
    -------------------------------------------------------------------------- */
 
 const SERIEN = [
-  { id: "stillleben",            titel: "Stillleben",              zeitraum: "1983–1988" },
-  { id: "tischflaechen",         titel: "Tischflächen",            zeitraum: "2017–2020" },
-  { id: "landschaften",          titel: "Landschaften",            zeitraum: "2019–2025" },
-  { id: "grafik-kugelschreiber", titel: "Grafik (Kugelschreiber)", zeitraum: "" }, // [bitte prüfen: Zeitraum ergänzen]
-  { id: "grafik-diverse",        titel: "Grafik (diverse)",        zeitraum: "" }, // [bitte prüfen: Zeitraum ergänzen]
+  { id: "oel-leinwand",         titel: "Öl auf Leinwand",            zeitraum: "" },
+  { id: "oel-hartfaser-karton", titel: "Öl auf Hartfaser und Karton", zeitraum: "" },
+  { id: "grafik",               titel: "Grafik",                     zeitraum: "" },
 ];
 
 
 /* --------------------------------------------------------------------------
+   STATUS
+   Für Werke, die nicht mehr zu haben sind. Im Werk wird einfach
+   status: "verkauft" ergänzt; auf der Seite erscheint dann unter dem Bild ein
+   kleiner Punkt mit dem Wort aus dieser Liste. Das Bild selbst bleibt, wie es ist.
+   Links steht das Kürzel (Kleinbuchstaben, keine Umlaute), rechts das Wort,
+   das Besucher lesen.
+   -------------------------------------------------------------------------- */
+
+const STATUS = {
+  verkauft:          "Verkauft",
+  privatbesitz:      "In Privatbesitz",
+  nichtverkaeuflich: "Nicht verkäuflich",
+};
+
+
+/* --------------------------------------------------------------------------
    WERKE
-   id       eindeutig, z. B. "tf-2020-01" (Kürzel der Serie, Jahr, laufende Nummer)
-   serie    id aus SERIEN
+   id       eindeutig, z. B. "ls-2020-01" (Kürzel, Jahr, laufende Nummer);
+            bleibt bestehen, auch wenn ein Werk die Gruppe wechselt
+   serie    id aus SERIEN (Gruppe, in der das Werk erscheint)
+   titel    nur bei den Werken, die ausnahmsweise einen Namen tragen
    jahr     Entstehungsjahr
-   technik  z. B. "Öl auf Leinwand"
+   technik  z. B. "Öl auf Leinwand", bei Grafik die Art: "Kaltnadelradierung"
    masse    immer Höhe × Breite, z. B. "60 × 80 cm" (leer lassen, wenn unbekannt)
    datei    Dateiname im Ordner bilder/werke/
    start    true = erscheint in der Auswahl auf der Startseite (genau 6 empfohlen)
+   status   optional: "verkauft", "privatbesitz" oder "nichtverkaeuflich" (siehe STATUS)
 
-   Die Reihenfolge innerhalb einer Serie ist die Reihenfolge hier in der Liste.
+   Die Reihenfolge innerhalb einer Gruppe ist die Reihenfolge hier in der Liste.
    Angaben stammen aus den Dateinamen und dem Werkverzeichnis „Grafiken März 2018“.
    -------------------------------------------------------------------------- */
 
 const WERKE = [
 
-  /* Stillleben ------------------------------------------------------------ */
-  { id: "st-1985-01", serie: "stillleben", jahr: 1985, technik: "Öl auf Leinwand", masse: "50 × 70 cm",
+  /* Öl auf Leinwand ------------------------------------------------------- */
+  { id: "st-1985-01", serie: "oel-leinwand", jahr: 1985, technik: "Öl auf Leinwand", masse: "50 × 70 cm",
     datei: "stillleben-1985-01.jpg", start: true },
     // [bitte prüfen: Jahr (auch als 1984 abgelegt), Technik, Maße]
-  { id: "st-1986-01", serie: "stillleben", jahr: 1986, technik: "Öl auf Leinwand", masse: "50 × 70 cm",
+  { id: "st-1986-01", serie: "oel-leinwand", jahr: 1986, technik: "Öl auf Leinwand", masse: "50 × 70 cm",
     datei: "stillleben-1986-01.jpg", start: false },
     // [bitte prüfen: Technik]
-  { id: "st-1987-01", serie: "stillleben", jahr: 1987, technik: "Öl auf Leinwand", masse: "50 × 70 cm",
+  { id: "st-1987-01", serie: "oel-leinwand", jahr: 1987, technik: "Öl auf Leinwand", masse: "50 × 70 cm",
     datei: "stillleben-1987-01.jpg", start: true },
     // [bitte prüfen: Jahr (auch als 1986 abgelegt), Maße]
-
-  /* Tischflächen ---------------------------------------------------------- */
-  { id: "tf-2020-01", serie: "tischflaechen", jahr: 2020, technik: "Öl auf Karton", masse: "60 × 80 cm",
-    datei: "tischflaechen-2020-01.jpg", start: false },
-    // [bitte prüfen: Jahr (auch als 2016 abgelegt)]
-  { id: "tf-2020-02", serie: "tischflaechen", jahr: 2020, technik: "Öl auf Hartfaser", masse: "60 × 80 cm",
-    datei: "tischflaechen-2020-02.jpg", start: false },
-  { id: "tf-2020-03", serie: "tischflaechen", jahr: 2020, technik: "Öl auf Hartfaser", masse: "60 × 80 cm",
-    datei: "tischflaechen-2020-03.jpg", start: true },
-
-  /* Landschaften ---------------------------------------------------------- */
-  { id: "ls-2019-01", serie: "landschaften", jahr: 2019, technik: "Öl auf Leinwand", masse: "140 × 160 cm",
+  { id: "ls-2019-01", serie: "oel-leinwand", jahr: 2019, technik: "Öl auf Leinwand", masse: "140 × 160 cm",
     datei: "landschaften-2019-01.jpg", start: false },
     // [bitte prüfen: Jahr (auch als 2021 abgelegt), Technik, Maße („1.60 x 140m“)]
-  { id: "ls-2020-01", serie: "landschaften", jahr: 2020, technik: "Öl auf Leinwand", masse: "120 × 140 cm",
+  { id: "ls-2020-01", serie: "oel-leinwand", jahr: 2020, technik: "Öl auf Leinwand", masse: "120 × 140 cm",
     datei: "landschaften-2020-01.jpg", start: true },
     // [bitte prüfen: Jahr (auch als 2021 abgelegt), Technik]
-  { id: "ls-2022-01", serie: "landschaften", jahr: 2022, technik: "Öl auf Leinwand", masse: "120 × 140 cm",
+  { id: "ls-2022-01", serie: "oel-leinwand", jahr: 2022, technik: "Öl auf Leinwand", masse: "120 × 140 cm",
     datei: "landschaften-2022-01.jpg", start: true },
     // [bitte prüfen: Technik]
-  { id: "ls-2025-01", serie: "landschaften", jahr: 2025, technik: "Öl auf Leinwand", masse: "",
+  { id: "ls-2025-01", serie: "oel-leinwand", jahr: 2025, technik: "Öl auf Leinwand", masse: "",
     datei: "landschaften-2025-01.jpg", start: false },
     // [bitte prüfen: Jahr, Technik und Maße – aus dem Ordner „Neue Bilder/392“]
 
-  /* Grafik (Kugelschreiber) ----------------------------------------------- */
-  { id: "gk-1987-01", serie: "grafik-kugelschreiber", jahr: 1987, technik: "Kugelschreiber auf Papier", masse: "",
-    datei: "grafik-kugelschreiber-1987-01.jpg", start: false },
-    // [bitte prüfen: Skizzenbuch „Figuren im Raum“ – Papier und Maße]
-  { id: "gk-2014-01", serie: "grafik-kugelschreiber", jahr: 2014, technik: "Kugelschreiber auf Karton", masse: "18 × 21 cm",
-    datei: "grafik-kugelschreiber-2014-01.jpg", start: false },
-    // [bitte prüfen: Maße – Dateiname „21 x 18cm“, Blatt ist querformatig]
-  { id: "gk-2015-01", serie: "grafik-kugelschreiber", jahr: 2015, technik: "Kugelschreiber auf Karton", masse: "25 × 35 cm",
-    datei: "grafik-kugelschreiber-2015-01.jpg", start: true },
-    // [bitte prüfen: Technik]
+  /* Öl auf Hartfaser und Karton ------------------------------------------- */
+  { id: "tf-2020-01", serie: "oel-hartfaser-karton", jahr: 2020, technik: "Öl auf Karton", masse: "60 × 80 cm",
+    datei: "tischflaechen-2020-01.jpg", start: false },
+    // [bitte prüfen: Jahr (auch als 2016 abgelegt)]
+  { id: "tf-2020-02", serie: "oel-hartfaser-karton", jahr: 2020, technik: "Öl auf Hartfaser", masse: "60 × 80 cm",
+    datei: "tischflaechen-2020-02.jpg", start: false },
+  { id: "tf-2020-03", serie: "oel-hartfaser-karton", jahr: 2020, technik: "Öl auf Hartfaser", masse: "60 × 80 cm",
+    datei: "tischflaechen-2020-03.jpg", start: true },
 
-  /* Grafik (diverse) ------------------------------------------------------ */
-  { id: "gd-1984-01", serie: "grafik-diverse", jahr: 1984, technik: "Kaltnadelradierung", masse: "16,2 × 20,8 cm",
+  /* Grafik ---------------------------------------------------------------- */
+  { id: "gd-1984-01", serie: "grafik", titel: "Eishaus in Sauen", jahr: 1984, technik: "Kaltnadelradierung", masse: "16,2 × 20,8 cm",
     datei: "grafik-diverse-1984-01.jpg", start: false },
     // [bitte prüfen: Jahr – Werkverzeichnis 1984, Dateiname 1983]
-  { id: "gd-1985-01", serie: "grafik-diverse", jahr: 1985, technik: "Aquarell auf Karton", masse: "28 × 39 cm",
+  { id: "gd-1985-01", serie: "grafik", titel: "Koppenplatz", jahr: 1985, technik: "Aquarell auf Karton", masse: "28 × 39 cm",
     datei: "grafik-diverse-1985-01.jpg", start: false },
     // [bitte prüfen: Jahr – Werkverzeichnis 1985, Dateiname 1986]
-  { id: "gd-2018-01", serie: "grafik-diverse", jahr: 2018, technik: "", masse: "",
+  { id: "gk-1987-01", serie: "grafik", jahr: 1987, technik: "Kugelschreiber auf Papier", masse: "",
+    datei: "grafik-kugelschreiber-1987-01.jpg", start: false },
+    // [bitte prüfen: Skizzenbuch „Figuren im Raum“ – Papier und Maße]
+  { id: "gk-2014-01", serie: "grafik", jahr: 2014, technik: "Kugelschreiber auf Karton", masse: "18 × 21 cm",
+    datei: "grafik-kugelschreiber-2014-01.jpg", start: false },
+    // [bitte prüfen: Maße – Dateiname „21 x 18cm“, Blatt ist querformatig]
+  { id: "gk-2015-01", serie: "grafik", jahr: 2015, technik: "Kugelschreiber auf Karton", masse: "25 × 35 cm",
+    datei: "grafik-kugelschreiber-2015-01.jpg", start: true },
+    // [bitte prüfen: Technik]
+  { id: "gd-2018-01", serie: "grafik", titel: "Lobbe", jahr: 2018, technik: "Kugelschreiber auf Karton", masse: "20 × 28 cm",
     datei: "grafik-diverse-2018-01.jpg", start: false },
-    // [bitte prüfen: Technik und Maße der Zeichnung „Seeblick“]
 ];
 
 
@@ -125,44 +139,15 @@ const WERKE = [
 const AUSSTELLUNGEN = [
 
   /* Kommend --------------------------------------------------------------- */
-  { id: "berlin-2027", status: "kommend",
-    ort: "Bethanien", stadt: "Berlin",
-    zeitraum: "September–Dezember 2027", beginn: "2027-09", ende: "2027-12",
-    titel: "", // [bitte entscheiden: „Seestücke“ oder Landschaftsausstellung? Die alte Seite nennt beides.]
-    text: "Neue Arbeiten, Schwerpunkt Landschaft.", // [bitte bestätigen]
-    bild: "", werk: "ls-2025-01", // [bitte prüfen: Raumfoto oder anderes Werk]
-    gross: true },
-
-  { id: "leipzig-2028", status: "kommend",
-    ort: "Spinnerei", stadt: "Leipzig",
-    zeitraum: "Juni–August 2028", beginn: "2028-06", ende: "2028-08",
-    titel: "",
-    text: "Malerei: Tischflächen und Landschaften.", // [bitte bestätigen]
-    bild: "", werk: "tf-2020-03", // [bitte prüfen: Raumfoto oder anderes Werk]
-    gross: false },
-
-  { id: "muenchen-2029", status: "kommend",
-    ort: "Bergson", stadt: "München",
-    zeitraum: "Februar–Mai 2029", beginn: "2029-02", ende: "2029-05",
-    titel: "",
-    text: "Malerei und Zeichnung.", // [bitte bestätigen]
-    bild: "", werk: "ls-2019-01", // [bitte prüfen: Raumfoto oder anderes Werk]
-    gross: false },
-
-  { id: "darmstadt-2030", status: "kommend",
-    ort: "Institut Mathildenhöhe", stadt: "Darmstadt",
-    zeitraum: "Januar–April 2030", beginn: "2030-01", ende: "2030-04",
-    titel: "",
-    text: "Zeichnungen und Grafik.", // [bitte bestätigen]
-    bild: "", werk: "gk-2015-01", // [bitte prüfen: Raumfoto oder anderes Werk]
-    gross: false },
+  // Derzeit sind keine Ausstellungen geplant; die Seite zeigt dann den Hinweis
+  // „Neue Ausstellungen werden hier angekündigt.“ Sobald eine feststeht, hier
+  // einen Eintrag nach dem Muster in PFLEGE.md ergänzen.
 
   /* Bisherig -------------------------------------------------------------- */
   { id: "berlin-1987", status: "vergangen",
-    ort: "Jugendclub Berlin-Mitte", stadt: "Berlin",
+    ort: "Wohngebietsgalerie Berlin-Mitte", stadt: "Berlin",
     zeitraum: "1987", beginn: "1987",
     titel: "", text: "", bild: "", gross: false },
-    // [bitte prüfen: Name des Clubs – im Archiv als „W. Pieck Club“ abgelegt?]
 
   { id: "berlin-1988", status: "vergangen",
     ort: "Galerie des Stadtbezirks Berlin-Mitte", stadt: "Berlin",
@@ -188,12 +173,12 @@ const VITA = [
   { zeit: "1982–1987",   text: "Architekturstudium, Kunsthochschule Berlin-Weißensee" },
   { zeit: "1987–1989",   text: "Szenenbildner, Fernsehfunk der DDR" },
     // [bitte prüfen: 1987–1989 hieß der Sender offiziell „Fernsehen der DDR“]
-  { zeit: "1987 / 1988", text: "Ausstellungen: Jugendclub Berlin-Mitte; Galerie des Stadtbezirks Berlin-Mitte" },
+  { zeit: "1987 / 1988", text: "Ausstellungen: Wohngebietsgalerie Berlin-Mitte; Galerie des Stadtbezirks Berlin-Mitte" },
   { zeit: "1989–1990",   text: "Architekt in Xanten" },
   { zeit: "seit 1990",   text: "zurück in Berlin, Malerei neben der Bauleitung" },
-  { zeit: "seit 2010",   text: "Atelier in Wildau" }, // [bitte prüfen: seit wann genau?]
   { zeit: "1993",        text: "Ausstellung, Galerie Berlin-Marzahn" },
-  { zeit: "seit 2017",   text: "Serie der Tischflächen" },
+  { zeit: "seit 2010",   text: "Atelier in Wildau" }, // [bitte prüfen: seit wann genau?]
+  { zeit: "seit 2017",   text: "Öl auf Hartfaser und Karton: Fläche und Raum" },
 ];
 
 

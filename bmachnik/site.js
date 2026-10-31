@@ -19,6 +19,7 @@
     try {
       return {
         serien: SERIEN,
+        status: typeof STATUS !== "undefined" ? STATUS : {},
         werke: WERKE,
         ausstellungen: AUSSTELLUNGEN,
         vita: typeof VITA !== "undefined" ? VITA : [],
@@ -54,6 +55,7 @@
       if (!serienIds.has(w.serie)) warne(`Werk „${w.id}“ nennt die unbekannte Serie „${w.serie}“.`);
       if (!w.datei) warne(`Werk „${w.id}“ hat keine Bilddatei (datei).`);
       if (!w.jahr) warne(`Werk „${w.id}“ hat kein Jahr.`);
+      if (w.status && !d.status[w.status]) warne(`Werk „${w.id}“ nennt den unbekannten Status „${w.status}“.`);
     });
     d.ausstellungen.forEach((a) => {
       if (a.status !== "kommend" && a.status !== "vergangen") {
@@ -110,20 +112,23 @@
     return hoehe > 0 && breite > 0 ? breite / hoehe : null;
   }
 
-  /** „Tischflächen, 2020, Öl auf Hartfaser, 60 × 80 cm“ */
+  /** „Koppenplatz, 1985, Aquarell auf Karton, 28 × 39 cm“ (der Titel nur, wenn das Werk einen hat) */
   function bildunterschrift(werk) {
-    const serie = findeSerie(werk.serie);
-    return [serie && serie.titel, werk.jahr, werk.technik, formatMasse(werk.masse)]
-      .filter(Boolean)
-      .join(", ");
+    return [werk.titel, werk.jahr, werk.technik, formatMasse(werk.masse)].filter(Boolean).join(", ");
   }
 
-  /** „2020 · Öl auf Hartfaser · 60 × 80 cm“ (Serie steht schon in der Überschrift) */
+  /** „1985 · Aquarell auf Karton · 28 × 39 cm“ (Technik steht meist schon in der Überschrift) */
   function kurzangabe(werk) {
     return [werk.jahr, werk.technik, formatMasse(werk.masse)].filter(Boolean).join(" · ");
   }
 
   const altText = (werk) => KUENSTLER + ", " + bildunterschrift(werk);
+
+  /** „Verkauft“ o. Ä.: Wort aus STATUS in daten.js, wenn das Werk einen status hat */
+  function statusKnoten(werk) {
+    const text = werk.status && daten.status[werk.status];
+    return text ? el("span", { class: "werk__status", text: text }) : null;
+  }
 
   /**
    * Bild im Rahmen mit Platzhalter.
@@ -165,8 +170,8 @@
     element.style.setProperty("--r", (r || STANDARD_VERHAELTNIS).toFixed(4));
   }
 
-  /** Listeneintrag für das Werkraster; mitSerie, wenn keine Serienüberschrift darüber steht */
-  function erzeugeWerk(werk, href, mitSerie) {
+  /** Listeneintrag für das Werkraster; knapp = nur die Herstellungsart (Startseite) */
+  function erzeugeWerk(werk, href, knapp) {
     const eintrag = el("li");
     setzeVerhaeltnis(eintrag, seitenverhaeltnis(werk.masse));
     const quelle = bildpfad(PFAD_WERKE, werk.datei);
@@ -175,7 +180,11 @@
     eintrag.append(
       el("figure", { class: "werk" }, [
         link,
-        el("figcaption", { class: "werk__angabe", text: mitSerie ? bildunterschrift(werk) : kurzangabe(werk) }),
+        el("figcaption", { class: "werk__angabe" }, [
+          werk.titel && el("span", { class: "werk__titel", text: werk.titel }),
+          el("span", { text: knapp ? werk.technik : kurzangabe(werk) }),
+          statusKnoten(werk),
+        ]),
       ])
     );
     return eintrag;
@@ -321,7 +330,9 @@
       const rahmen = erzeugeRahmen(bildpfad(PFAD_WERKE, werk.datei), altText(werk), null, { lazy: false });
       setzeVerhaeltnis(rahmen, seitenverhaeltnis(werk.masse));
       buehne.replaceChildren(rahmen);
-      angabe.textContent = bildunterschrift(werk);
+      angabe.replaceChildren(bildunterschrift(werk));
+      const status = statusKnoten(werk);
+      if (status) angabe.append(status);
       zaehler.textContent = index + 1 + " / " + n;
       history.replaceState(null, "", "#werk-" + werk.id);
       vorladen(liste[(index + 1) % n]);
@@ -387,7 +398,7 @@
       ziel.append(
         kommend.length
           ? erzeugeAnkuendigungen(kommend, 3, "h3")
-          : el("p", { class: "hinweis", text: "Derzeit sind keine Ausstellungen angekündigt." })
+          : el("p", { class: "hinweis", text: "Neue Ausstellungen werden hier angekündigt." })
       );
     }
 
@@ -529,7 +540,7 @@
       zielKommend.append(
         kommend.length
           ? erzeugeAnkuendigungen(kommend, Infinity, "h3")
-          : el("p", { class: "hinweis", text: "Derzeit sind keine Ausstellungen angekündigt." })
+          : el("p", { class: "hinweis", text: "Neue Ausstellungen werden hier angekündigt." })
       );
     }
 
