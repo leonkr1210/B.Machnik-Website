@@ -24,7 +24,7 @@ Die Proportionen werden aus dem Bild übernommen. Hat das neue Foto andere Maße
 ```
 
 - `serie` ist die Gruppe auf der Seite „Arbeiten“: `oel-leinwand`, `oel-hartfaser-karton` oder `grafik`. Die Werke sind nach Technik und Bildträger geordnet, nicht nach Titeln.
-- `technik` steht unter dem Bild. Bei Grafik ist das die Art der Grafik, z. B. `"Kaltnadelradierung"`, `"Aquarell auf Karton"` oder `"Kugelschreiber auf Karton"`.
+- `technik` steht unter dem Bild. Bei Grafik ist das die Art der Grafik, z. B. `"Kaltnadelradierung"` oder `"Kugelschreiber auf Karton"`.
 - `masse` immer **Höhe × Breite**. Unbekannt: leer lassen (`masse: ""`).
 - `start: true` zeigt das Werk auf der Startseite. Es sind genau sechs vorgesehen; dafür bei einem anderen Werk `start: false` setzen.
 - Werke tragen keinen Titel. Die Ausnahme sind drei Grafiken („Eishaus in Sauen“, „Koppenplatz“, „Lobbe“); bei ihnen steht zusätzlich `titel: "…"` im Eintrag. Bei allen anderen bleibt das Feld weg.
@@ -52,7 +52,7 @@ Ohne `status` erscheint nichts. Wörter ändern oder weitere ergänzen: in `STAT
 
 Statt `daten.js` selbst zu bearbeiten: Foto im Chat anhängen und dazuschreiben
 
-- Gruppe (Öl auf Leinwand, Öl auf Hartfaser und Karton oder Grafik),
+- Gruppe (Öl auf Leinwand, Öl auf Hartfaser und Karton, Grafik oder Aquarell),
 - Jahr und Technik,
 - Maße (Höhe × Breite),
 - ob es auf die Startseite soll (dann fällt ein anderes Werk dort heraus),

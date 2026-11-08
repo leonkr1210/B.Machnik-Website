@@ -27,6 +27,7 @@ const SERIEN = [
   { id: "oel-leinwand",         titel: "Öl auf Leinwand",            zeitraum: "" },
   { id: "oel-hartfaser-karton", titel: "Öl auf Hartfaser und Karton", zeitraum: "" },
   { id: "grafik",               titel: "Grafik",                     zeitraum: "" },
+  { id: "aquarell",             titel: "Aquarell",                   zeitraum: "" },
 ];
 
 
@@ -66,15 +67,35 @@ const STATUS = {
 const WERKE = [
 
   /* Öl auf Leinwand ------------------------------------------------------- */
+  { id: "lw-1983-01", serie: "oel-leinwand", jahr: 1983, technik: "Öl auf Leinwand", masse: "",
+    datei: "leinwand-1983-01.jpg", start: false },
+    // [bitte prüfen: Technik und Maße (Krug)]
+  { id: "lw-1984-01", serie: "oel-leinwand", jahr: 1984, technik: "Öl auf Leinwand", masse: "",
+    datei: "leinwand-1984-01.jpg", start: false },
+    // [bitte prüfen: Technik und Maße]
   { id: "st-1985-01", serie: "oel-leinwand", jahr: 1985, technik: "Öl auf Leinwand", masse: "50 × 70 cm",
     datei: "stillleben-1985-01.jpg", start: true },
     // [bitte prüfen: Jahr (auch als 1984 abgelegt), Technik, Maße]
   { id: "st-1986-01", serie: "oel-leinwand", jahr: 1986, technik: "Öl auf Leinwand", masse: "50 × 70 cm",
     datei: "stillleben-1986-01.jpg", start: false },
     // [bitte prüfen: Technik]
+  { id: "lw-1986-01", serie: "oel-leinwand", jahr: 1986, technik: "Öl auf Leinwand", masse: "50 × 60 cm",
+    datei: "leinwand-1986-01.jpg", start: false, status: "nichtverkaeuflich" },
+    // [bitte prüfen: Torso, Eigenbesitz: Verkauf mit Bernd klären; Maße (Dateiname „0.60 x 0.50“)]
   { id: "st-1987-01", serie: "oel-leinwand", jahr: 1987, technik: "Öl auf Leinwand", masse: "50 × 70 cm",
     datei: "stillleben-1987-01.jpg", start: true },
     // [bitte prüfen: Jahr (auch als 1986 abgelegt), Maße]
+  { id: "lw-1987-01", serie: "oel-leinwand", jahr: 1987, technik: "Öl auf Leinwand", masse: "",
+    datei: "leinwand-1987-01.jpg", start: false },
+    // [bitte prüfen: Diptychon: Maße]
+  { id: "lw-1988-01", serie: "oel-leinwand", jahr: 1988, technik: "Öl auf Leinwand", masse: "",
+    datei: "leinwand-1988-01.jpg", start: false },
+    // [bitte prüfen: Technik und Maße (Flur Ackerstraße)]
+  { id: "lw-1989-01", serie: "oel-leinwand", jahr: 1989, technik: "Öl auf Leinwand", masse: "140 × 120 cm",
+    datei: "leinwand-1989-01.jpg", start: false },
+  { id: "lw-1992-01", serie: "oel-leinwand", jahr: 1992, technik: "Öl auf Leinwand", masse: "110 × 280 cm",
+    datei: "leinwand-1992-01.jpg", start: false },
+    // [bitte prüfen: Diptychon]
   { id: "ls-2019-01", serie: "oel-leinwand", jahr: 2019, technik: "Öl auf Leinwand", masse: "140 × 160 cm",
     datei: "landschaften-2019-01.jpg", start: false },
     // [bitte prüfen: Jahr (auch als 2021 abgelegt), Technik, Maße („1.60 x 140m“)]
@@ -89,6 +110,15 @@ const WERKE = [
     // [bitte prüfen: Jahr, Technik und Maße – aus dem Ordner „Neue Bilder/392“]
 
   /* Öl auf Hartfaser und Karton ------------------------------------------- */
+  { id: "hf-1985-01", serie: "oel-hartfaser-karton", jahr: 1985, technik: "Öl auf Hartfaser", masse: "",
+    datei: "hartfaser-1985-01.jpg", start: false },
+    // [bitte prüfen: Maße (Dateiname „0.60 x 0.50“ passt nicht zum Format)]
+  { id: "hf-1986-01", serie: "oel-hartfaser-karton", jahr: 1986, technik: "Öl auf Karton", masse: "",
+    datei: "hartfaser-1986-01.jpg", start: false },
+    // [bitte prüfen: Technik und Maße (Zeichenpraktikum Wiehe)]
+  { id: "hf-1986-02", serie: "oel-hartfaser-karton", jahr: 1986, technik: "Öl auf Karton", masse: "",
+    datei: "hartfaser-1986-02.jpg", start: false },
+    // [bitte prüfen: Technik und Maße (Zeichenpraktikum Wiehe)]
   { id: "tf-2020-01", serie: "oel-hartfaser-karton", jahr: 2020, technik: "Öl auf Karton", masse: "60 × 80 cm",
     datei: "tischflaechen-2020-01.jpg", start: false },
     // [bitte prüfen: Jahr (auch als 2016 abgelegt)]
@@ -98,23 +128,70 @@ const WERKE = [
     datei: "tischflaechen-2020-03.jpg", start: true },
 
   /* Grafik ---------------------------------------------------------------- */
+  { id: "gr-1983-01", serie: "grafik", jahr: 1983, technik: "Mischtechnik auf Papier", masse: "",
+    datei: "grafik-1983-01.jpg", start: false, status: "nichtverkaeuflich" },
+    // [bitte prüfen: Selbstporträt, in Privatbesitz: Verkauf mit Bernd klären; Maße]
   { id: "gd-1984-01", serie: "grafik", titel: "Eishaus in Sauen", jahr: 1984, technik: "Kaltnadelradierung", masse: "16,2 × 20,8 cm",
     datei: "grafik-diverse-1984-01.jpg", start: false },
     // [bitte prüfen: Jahr – Werkverzeichnis 1984, Dateiname 1983]
-  { id: "gd-1985-01", serie: "grafik", titel: "Koppenplatz", jahr: 1985, technik: "Aquarell auf Karton", masse: "28 × 39 cm",
-    datei: "grafik-diverse-1985-01.jpg", start: false },
-    // [bitte prüfen: Jahr – Werkverzeichnis 1985, Dateiname 1986]
+  { id: "gr-1984-01", serie: "grafik", jahr: 1984, technik: "Bleistift auf Papier", masse: "",
+    datei: "grafik-1984-01.jpg", start: false },
+    // [bitte prüfen: Technik und Maße (Stühle)]
+  { id: "gr-1985-01", serie: "grafik", jahr: 1985, technik: "Kohle auf Papier", masse: "",
+    datei: "grafik-1985-01.jpg", start: false },
+    // [bitte prüfen: Technik und Maße (Gasse in Wiehe)]
+  { id: "gr-1985-02", serie: "grafik", jahr: 1985, technik: "Kohle auf Papier", masse: "90 × 70 cm",
+    datei: "grafik-1985-02.jpg", start: false },
+    // [bitte prüfen: Technik (Zeichnung Ackerstraße)]
+  { id: "gr-1985-03", serie: "grafik", jahr: 1985, technik: "Gouache auf Papier", masse: "",
+    datei: "grafik-1985-03.jpg", start: false },
+    // [bitte prüfen: Technik und Maße (Maxhütte; Jahr laut Signatur 1985, Dateiname 1986)]
+  { id: "gr-1986-01", serie: "grafik", jahr: 1986, technik: "Kohle auf Papier", masse: "",
+    datei: "grafik-1986-01.jpg", start: false },
+    // [bitte prüfen: Technik und Maße (Veteranenclub Berlin-Mitte)]
+  { id: "gr-1987-01", serie: "grafik", jahr: 1987, technik: "Kaltnadelradierung", masse: "18 × 25 cm",
+    datei: "grafik-1987-01.jpg", start: false },
+    // [bitte prüfen: Maße (Dateiname „ca. 25 x 18 cm“)]
   { id: "gk-1987-01", serie: "grafik", jahr: 1987, technik: "Kugelschreiber auf Papier", masse: "",
     datei: "grafik-kugelschreiber-1987-01.jpg", start: false },
     // [bitte prüfen: Skizzenbuch „Figuren im Raum“ – Papier und Maße]
+  { id: "gr-1990-01", serie: "grafik", jahr: 1990, technik: "Mischtechnik auf Papier", masse: "",
+    datei: "grafik-1990-01.jpg", start: false, status: "nichtverkaeuflich" },
+    // [bitte prüfen: Trio, in Privatbesitz: Verkauf mit Bernd klären; Technik und Maße (drei Blätter)]
+  { id: "gr-2010-01", serie: "grafik", jahr: 2010, technik: "Bleistift auf Papier", masse: "",
+    datei: "grafik-2010-01.jpg", start: false },
+    // [bitte prüfen: Technik und Maße (Schädel)]
+  { id: "gr-2013-01", serie: "grafik", jahr: 2013, technik: "Kugelschreiber auf Karton", masse: "",
+    datei: "grafik-2013-01.jpg", start: false },
+    // [bitte prüfen: Maße]
+  { id: "gr-2013-02", serie: "grafik", jahr: 2013, technik: "Kugelschreiber auf Karton", masse: "",
+    datei: "grafik-2013-02.jpg", start: false },
+    // [bitte prüfen: Maße]
   { id: "gk-2014-01", serie: "grafik", jahr: 2014, technik: "Kugelschreiber auf Karton", masse: "18 × 21 cm",
     datei: "grafik-kugelschreiber-2014-01.jpg", start: false },
     // [bitte prüfen: Maße – Dateiname „21 x 18cm“, Blatt ist querformatig]
   { id: "gk-2015-01", serie: "grafik", jahr: 2015, technik: "Kugelschreiber auf Karton", masse: "25 × 35 cm",
     datei: "grafik-kugelschreiber-2015-01.jpg", start: true },
     // [bitte prüfen: Technik]
+  { id: "gr-2016-01", serie: "grafik", jahr: 2016, technik: "Bleistift auf Karton", masse: "",
+    datei: "grafik-2016-01.jpg", start: false },
+    // [bitte prüfen: Maße]
+  { id: "gr-2016-02", serie: "grafik", jahr: 2016, technik: "Kugelschreiber auf Karton", masse: "",
+    datei: "grafik-2016-02.jpg", start: false },
+    // [bitte prüfen: Technik und Maße]
   { id: "gd-2018-01", serie: "grafik", titel: "Lobbe", jahr: 2018, technik: "Kugelschreiber auf Karton", masse: "20 × 28 cm",
     datei: "grafik-diverse-2018-01.jpg", start: false },
+
+  /* Aquarell -------------------------------------------------------------- */
+  { id: "gd-1985-01", serie: "aquarell", titel: "Koppenplatz", jahr: 1985, technik: "Aquarell auf Karton", masse: "28 × 39 cm",
+    datei: "grafik-diverse-1985-01.jpg", start: false },
+    // [bitte prüfen: Jahr – Werkverzeichnis 1985, Dateiname 1986]
+  { id: "aq-1987-01", serie: "aquarell", jahr: 1987, technik: "Aquarell auf Papier", masse: "",
+    datei: "aquarell-1987-01.jpg", start: false },
+    // [bitte prüfen: Skizze für Interieur Krematorium Baumschulenweg: Maße]
+  { id: "aq-2006-01", serie: "aquarell", jahr: 2006, technik: "Aquarell auf Papier", masse: "",
+    datei: "aquarell-2006-01.jpg", start: false },
+    // [bitte prüfen: Studie am Gardasee: Maße]
 ];
 
 
